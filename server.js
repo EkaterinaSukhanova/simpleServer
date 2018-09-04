@@ -66,9 +66,9 @@ app.get('/user', (req, res) => {
 });
 
 app.post('/user', (req, res) => {
-    let length = users.push(JSON.parse(JSON.stringify(req.body)));
+    //let length = users.push(JSON.parse(JSON.stringify(req.body)));
     res.status(200);
-    res.send(`Количество пользователей: ${length}`);
+    res.send(`Количество пользователей`);
 });
 
 app.listen(156, () => {
