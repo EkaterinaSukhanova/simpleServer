@@ -13,6 +13,7 @@ app.use(bp.json());
 app.use(bp.text());
 
 let last = 'Text';
+
 let users = [
     {
         name: 'Ivan',
@@ -44,7 +45,7 @@ app.post('/sendMessage', (req, res) => {
 app.get('/user/:id', (req, res) => {
     const user = users[req.params.id - 1];
     if (user) {
-        res.send(JSON.stringify(user));
+        res.send(`Пользователь: ${JSON.stringify(user.name)}. Почта: ${JSON.stringify(user.email)}`);
     } else {
         res.status(404);
         res.send({
