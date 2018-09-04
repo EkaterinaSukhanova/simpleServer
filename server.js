@@ -54,7 +54,7 @@ app.get('/user/:id', (req, res) => {
     }
 });
 
-app.get('/user', (req, res) => {
+app.get('/users', (req, res) => {
     if (users.length > 0) {
         res.send(JSON.stringify(users));
     } else{
@@ -66,7 +66,7 @@ app.get('/user', (req, res) => {
 });
 
 app.post('/user', (req, res) => {
-    //let length = users.push(JSON.parse(JSON.stringify(req.body)));
+    let length = users.push(JSON.parse(req.body));
     res.status(200);
     res.send(`Количество пользователей`);
 });
