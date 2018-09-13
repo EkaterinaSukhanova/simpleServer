@@ -11,6 +11,7 @@ const app = express(); //создаем объект сервера
 app.use(cors());
 app.use(bp.json());
 app.use(bp.text());
+app.use(express.static('static'));
 
 let last = 'Text';
 
@@ -30,7 +31,7 @@ let users = [
 //из req считает, в res запишет и потом сам отправит
 //отдаем статик
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname + '/index.html'));
+    res.sendFile(path.join(__dirname + '/static/index.html'));
 });
 
 app.get('/getMessage', (req, res) => {
@@ -71,30 +72,6 @@ app.post('/user', (req, res) => {
     res.send(`Количество пользователей`);
 });
 
-app.listen(156, () => {
-    console.log('Server starts on localhost: 156!!!');
+app.listen(8080, () => {
+    console.log('Server starts on: 8080!!!');
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
