@@ -1,12 +1,10 @@
 'use strict';
 
-//импорт библиотек, в кавычках модуль
 const express = require('express');
 const bp = require('body-parser');
 const path = require('path');
 const cors = require('cors');
 
-const app = express(); //создаем объект сервера
 
 app.use(cors());
 app.use(bp.json());
@@ -28,8 +26,6 @@ let users = [
     }
 ];
 
-//из req считает, в res запишет и потом сам отправит
-//отдаем статик
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname + '/static/index.html'));
 });
